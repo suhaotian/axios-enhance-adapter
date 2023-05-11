@@ -1,5 +1,9 @@
-# Changelog
+# CHANGELOG
 
-- 2023/03/02
+## 0.0.1
 
-  0.0.1, first commit
+- First release 🎉
+
+## 0.0.9
+
+- Useable release 🔥
