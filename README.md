@@ -1,6 +1,6 @@
-# enhance axios adapter
+# axios enhance adapter
 
-**Note: Only support axios < v0.27.2**
+**Note: Only support axios <= v0.27.2**
 
 ## Features:
 
@@ -11,7 +11,7 @@
 
 ```ts
 import { getEnhanceAdapter } from 'axios-enhance-adapter';
-import axios, { AxiosRequestConfig } from 'axios/index';
+import axios, { AxiosRequestConfig } from 'axios';
 
 const defaultOptions = {
   shouldRetryOnError: true,
@@ -42,7 +42,7 @@ const axiosInstance = axios.create({
 // only one will send
 await Promise.all([1, 2, 3, 4, 5].map((item) => axiosInstance.get('/')));
 
-// disable repeat filter
+// disable filter repeat requests filter
 await Promise.all(
   [1, 2, 3, 4, 5].map((item) =>
     axiosInstance.get('/', {
@@ -51,7 +51,7 @@ await Promise.all(
   )
 );
 
-// disable error retry
+// disable error retry feature
 await Promise.all(
   [1, 2, 3, 4, 5].map((item) =>
     axiosInstance.get('/', {
