@@ -1,6 +1,7 @@
-import axios, { AxiosError, AxiosResponse, AxiosRequestConfig, AxiosAdapter } from 'axios/index';
+import axios from 'axios';
+import type { AxiosError, AxiosResponse, AxiosRequestConfig, AxiosAdapter } from 'axios';
 
-import { AxiosEnhanceConfig } from './axios.d';
+import { AxiosEnhanceConfig } from './types';
 
 const DefaultOptions: Omit<AxiosEnhanceConfig, 'adapter'> = {
   shouldRetryOnError: true,

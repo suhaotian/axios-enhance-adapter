@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosAdapter } from 'axios/index';
+import type { AxiosRequestConfig, AxiosAdapter } from 'axios/index.d.ts';
 
 /// <reference types="axios" />
 
@@ -22,7 +22,7 @@ export interface AxiosEnhanceConfig
   > {
   customAdapter?: AxiosAdapter;
 }
-declare module 'axios/index' {
+declare module 'axios' {
   export interface AxiosRequestConfig extends AxiosRequestEnhanceConfig {
     //
   }
