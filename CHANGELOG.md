@@ -11,3 +11,7 @@
 ## 0.0.10
 
 - Improve README
+
+## 0.0.11
+
+- Add README.md at npm
