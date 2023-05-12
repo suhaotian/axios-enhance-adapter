@@ -16,7 +16,10 @@
 
 - Add README.md at npm
 
-
 ## 0.0.12
 
 - Add GitHub Repo infomation and author in package.json
+
+## 0.0.13
+
+- Fix: `errorRetryInterval` not working exactly
