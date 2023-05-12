@@ -47,7 +47,9 @@ jobs:
         run: pnpm install
 
       - run: pnpm -v
-      - run: dir
+      - run: ls
       - run: pnpm lint
+      - run: pnpm pnpm --filter=axios-enhance-adapter build
       - run: pnpm --filter=axios-enhance-adapter test
-      - run: dir
+      - run: pnpm --filter=next-example build
+      - run: ls
