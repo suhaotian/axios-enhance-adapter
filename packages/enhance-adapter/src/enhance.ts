@@ -80,6 +80,7 @@ export function getEnhanceAdapter(options?: AxiosEnhanceConfig): AxiosAdapter {
       checkEnable,
       shouldRetryOnError: _shouldRetryOnError,
       errorRetryCount: _errorRetryCount,
+      errorRetryInterval: _errorRetryInterval,
       ...requestConfig
     } = axiosRequestConfig;
     const opts = Object.assign({}, DefaultOptions, options) as Required<AxiosEnhanceConfig>;
@@ -98,6 +99,8 @@ export function getEnhanceAdapter(options?: AxiosEnhanceConfig): AxiosAdapter {
           typeof _shouldRetryOnError === 'boolean' ? _shouldRetryOnError : opts.shouldRetryOnError,
         errorRetryCount:
           typeof _errorRetryCount === 'number' ? _errorRetryCount : opts.errorRetryCount,
+        errorRetryInterval:
+          typeof _errorRetryInterval === 'number' ? _errorRetryInterval : opts.errorRetryInterval,
       };
 
       if (!requestPendingQueue[config.key]) {
