@@ -38,6 +38,9 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@configs/eslint-config": "*",
+    "@configs/test-config": "*",
+    "@configs/ts-config": "*",
     "bunchee": "^3.1.1",
     "axios": "^0.27.2",
     "express": "^4.18.2",
