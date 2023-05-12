@@ -15,3 +15,8 @@
 ## 0.0.11
 
 - Add README.md at npm
+
+
+## 0.0.12
+
+- Add GitHub Repo infomation and author in package.json
