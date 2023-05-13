@@ -1,3 +1,9 @@
+[![Tests](https://github.com/suhaotian/axios-enhance-adapter/actions/workflows/tests-ci.yml/badge.svg)](https://github.com/suhaotian/axios-enhance-adapter/actions/workflows/tests-ci.yml)
+[![npm version](https://badge.fury.io/js/axios-enhance-adapter.svg)](https://badge.fury.io/js/axios-enhance-adapter)
+[![install size](https://packagephobia.com/badge?p=axios-enhance-adapter@latest)](https://packagephobia.com/result?p=axios-enhance-adapter@latest)
+[![author](https://badgen.net/badge/icon/Made%20by%20suhaotian?icon=github&label&color=black&labelColor=black)](https://github.com/suhaotian)
+![license](https://badgen.net/npm/license/axios-enhance-adapter)
+
 # axios enhance adapter
 
 **Note: Currently, only support axios <= v0.27.2**
@@ -18,7 +24,9 @@ const axiosInstance = axios.create({
   adapter: getEnhanceAdapter(defaultOptions),
 });
 const defaultOptions = {
-  shouldRetryOnError: true,
+  shouldRetryOnError: (err) => {
+    return true;
+  },
   errorRetryInterval: 3000,
   errorRetryCount: 3,
   checkEnable(config: AxiosRequestConfig) {
@@ -55,7 +63,12 @@ await Promise.all(
 await Promise.all(
   [1, 2, 3, 4, 5].map((item) =>
     axiosInstance.get('/', {
-      shouldRetryOnError: false,
+      shouldRetryOnError: (err) => {
+        if (err.status === 401 || err.status === 403) {
+          return false;
+        }
+        return true;
+      },
     })
   )
 );
