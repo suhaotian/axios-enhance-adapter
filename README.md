@@ -1,6 +1,6 @@
 # axios enhance adapter
 
-**Note: Only support axios <= v0.27.2**
+**Note: Currently, only support axios <= v0.27.2**
 
 ## Features:
 
@@ -42,7 +42,7 @@ const defaultOptions = {
 // only one will send
 await Promise.all([1, 2, 3, 4, 5].map((item) => axiosInstance.get('/')));
 
-// disable repeat requests filter
+// disable repeat requests filter and error retry
 await Promise.all(
   [1, 2, 3, 4, 5].map((item) =>
     axiosInstance.get('/', {
@@ -51,7 +51,7 @@ await Promise.all(
   )
 );
 
-// disable error retry
+// only disable error retry
 await Promise.all(
   [1, 2, 3, 4, 5].map((item) =>
     axiosInstance.get('/', {
