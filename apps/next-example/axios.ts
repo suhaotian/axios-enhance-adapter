@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { getEnhanceAdapter } from 'axios-enhance-adapter';
 
 export const defaultOptions = {
-  shouldRetryOnError: true,
+  shouldRetryOnError: (err) => true,
   errorRetryInterval: 3000,
   errorRetryCount: 3,
 
