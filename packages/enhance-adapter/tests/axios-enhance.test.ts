@@ -172,6 +172,9 @@ describe('axios-enhance test suits', () => {
 
   it('error retry should work', async () => {
     const retryCount = 3;
+    const errorRetryInterval = 300;
+    const delay = 200;
+    const total = (errorRetryInterval + delay) * retryCount + delay;
     const startTimestamp = Date.now();
 
     const result = await Promise.all(
@@ -180,9 +183,9 @@ describe('axios-enhance test suits', () => {
           .get('/test-error-retry', {
             shouldRetryOnError: true,
             errorRetryCount: retryCount,
-            errorRetryInterval: 300,
+            errorRetryInterval,
             params: {
-              delay: 200,
+              delay,
               key: 'error-retry-test',
               maxErrorCount: retryCount,
             },
@@ -192,7 +195,8 @@ describe('axios-enhance test suits', () => {
           });
       })
     );
-    expect(Date.now() - startTimestamp >= 1700).toBe(true);
+
+    expect(Date.now() - startTimestamp >= total).toBe(true);
 
     expect(result.length).toBe(5);
     result.forEach((item) => {
@@ -202,8 +206,10 @@ describe('axios-enhance test suits', () => {
 
   it('disable error retry should have error', async () => {
     const retryCount = 3;
-
     const result: string[] = [];
+    const delay = 200;
+    const startTimestamp = Date.now();
+
     await Promise.all(
       [1, 2, 3, 4, 5].map((item) => {
         return axiosInstance
@@ -211,7 +217,7 @@ describe('axios-enhance test suits', () => {
             shouldRetryOnError: false,
             errorRetryCount: retryCount,
             params: {
-              delay: 200,
+              delay,
               key: 'error-retry-test-2',
               maxErrorCount: retryCount,
             },
@@ -224,6 +230,8 @@ describe('axios-enhance test suits', () => {
           });
       })
     );
+    expect(Date.now() - startTimestamp < delay + 50).toBe(true);
+
     expect(result.length).toBe(5);
     result.forEach((item) => {
       expect(item).toBe('Request failed with status code 400');
