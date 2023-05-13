@@ -1,7 +1,7 @@
 {
   "name": "axios-enhance-adapter",
   "description": "An axios adapter to avoid repeat request at same time and support erry retry",
-  "version": "0.0.13",
+  "version": "0.1.1",
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",
   "types": "./dist/types/index.d.ts",
@@ -33,7 +33,7 @@
     "build": "bunchee ./src/index.ts",
     "dev": "ts-node ./src/main.ts",
     "test": "cross-env NODE_ENV=test vitest run",
-    "lint": "eslint . --ext .ts,.tsx --fix",
+    "lint": "eslint . --ext .ts,.tsx --fix && tsc --noEmit",
     "start-publish": "cp ../../README.md ./ && node scripts/remove-local-deps.mjs && npm run build && npm publish --registry=https://registry.npmjs.org && node scripts/restore-local-deps.mjs"
   },
   "dependencies": {},
@@ -51,7 +51,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "@configs/eslint-config/node"
+      "@configs/eslint-config/web"
     ],
     "ignorePatterns": [
       "node_modules"
