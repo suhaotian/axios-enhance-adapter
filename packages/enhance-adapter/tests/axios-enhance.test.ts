@@ -172,6 +172,7 @@ describe('axios-enhance test suits', () => {
 
   it('error retry should work', async () => {
     const retryCount = 3;
+    const startTimestamp = Date.now();
 
     const result = await Promise.all(
       [1, 2, 3, 4, 5].map((item) => {
@@ -179,6 +180,7 @@ describe('axios-enhance test suits', () => {
           .get('/test-error-retry', {
             shouldRetryOnError: true,
             errorRetryCount: retryCount,
+            errorRetryInterval: 300,
             params: {
               delay: 200,
               key: 'error-retry-test',
@@ -190,6 +192,8 @@ describe('axios-enhance test suits', () => {
           });
       })
     );
+    expect(Date.now() - startTimestamp >= 1700).toBe(true);
+
     expect(result.length).toBe(5);
     result.forEach((item) => {
       expect(item).toBe(retryCount + 1);
