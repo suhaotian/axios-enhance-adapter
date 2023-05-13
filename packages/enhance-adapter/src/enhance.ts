@@ -2,6 +2,7 @@ import axios from 'axios';
 import type { AxiosError, AxiosResponse, AxiosRequestConfig, AxiosAdapter } from 'axios';
 
 import { AxiosEnhanceConfig } from './types';
+import { isNotUndefined } from './utils';
 
 const DefaultOptions: Omit<AxiosEnhanceConfig, 'adapter'> = {
   shouldRetryOnError: true,
@@ -95,12 +96,13 @@ export function getEnhanceAdapter(options?: AxiosEnhanceConfig): AxiosAdapter {
     return new Promise((resolve, reject) => {
       const config = {
         key,
-        shouldRetryOnError:
-          typeof _shouldRetryOnError === 'boolean' ? _shouldRetryOnError : opts.shouldRetryOnError,
-        errorRetryCount:
-          typeof _errorRetryCount === 'number' ? _errorRetryCount : opts.errorRetryCount,
-        errorRetryInterval:
-          typeof _errorRetryInterval === 'number' ? _errorRetryInterval : opts.errorRetryInterval,
+        shouldRetryOnError: isNotUndefined(_shouldRetryOnError)
+          ? _shouldRetryOnError
+          : opts.shouldRetryOnError,
+        errorRetryCount: isNotUndefined(_errorRetryCount) ? _errorRetryCount : opts.errorRetryCount,
+        errorRetryInterval: isNotUndefined(_errorRetryInterval)
+          ? _errorRetryInterval
+          : opts.errorRetryInterval,
       };
 
       if (!requestPendingQueue[config.key]) {
