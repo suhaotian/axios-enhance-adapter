@@ -9,7 +9,7 @@ export async function run() {
     [1, 2, 3, 4, 5, 6].map((item) =>
       axiosInstance.get('/test', {
         ...defaultOptions,
-        shouldRetryOnError: (err) => true,
+        shouldRetryOnError: () => true,
         errorRetryInterval: 2_000,
       })
     )

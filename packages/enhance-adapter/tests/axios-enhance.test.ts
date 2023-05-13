@@ -16,7 +16,7 @@ afterAll(async () => {
 
 describe('axios-enhance test suits', () => {
   const defaultOptions = {
-    shouldRetryOnError: (err) => true,
+    shouldRetryOnError: () => true,
     errorRetryInterval: 3000,
     errorRetryCount: 3,
     getKey(config: AxiosRequestConfig) {
