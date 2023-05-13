@@ -50,6 +50,9 @@
       "prettier --write",
       "eslint --fix"
     ],
+    "*.{ts,tsx,mts}": [
+      "pnpm lint --"
+    ],
     "*.{md,css}": [
       "prettier --write"
     ]
