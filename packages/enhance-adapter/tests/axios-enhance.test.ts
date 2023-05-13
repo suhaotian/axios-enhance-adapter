@@ -16,7 +16,7 @@ afterAll(async () => {
 
 describe('axios-enhance test suits', () => {
   const defaultOptions = {
-    shouldRetryOnError: true,
+    shouldRetryOnError: (err) => true,
     errorRetryInterval: 3000,
     errorRetryCount: 3,
     getKey(config: AxiosRequestConfig) {
@@ -152,7 +152,7 @@ describe('axios-enhance test suits', () => {
           axiosInstance
             .get('/timeout-test', {
               timeout: 200,
-              shouldRetryOnError: false,
+              shouldRetryOnError: (err) => false,
               params: {
                 delay: 500,
               },
@@ -181,7 +181,7 @@ describe('axios-enhance test suits', () => {
       [1, 2, 3, 4, 5].map((item) => {
         return axiosInstance
           .get('/test-error-retry', {
-            shouldRetryOnError: true,
+            shouldRetryOnError: (err) => true,
             errorRetryCount: retryCount,
             errorRetryInterval,
             params: {
@@ -214,7 +214,7 @@ describe('axios-enhance test suits', () => {
       [1, 2, 3, 4, 5].map((item) => {
         return axiosInstance
           .get('/test-error-retry', {
-            shouldRetryOnError: false,
+            shouldRetryOnError: (err) => false,
             errorRetryCount: retryCount,
             params: {
               delay,

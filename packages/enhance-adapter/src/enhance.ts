@@ -5,7 +5,7 @@ import { AxiosEnhanceConfig } from './types';
 import { isNotUndefined } from './utils';
 
 const DefaultOptions: Omit<AxiosEnhanceConfig, 'adapter'> = {
-  shouldRetryOnError: true,
+  shouldRetryOnError: () => true,
   errorRetryInterval: 3000,
   errorRetryCount: 3,
   getKey(config: AxiosRequestConfig) {
@@ -54,10 +54,11 @@ export function getEnhanceAdapter(options?: AxiosEnhanceConfig): AxiosAdapter {
       })
       .catch((err: AxiosError) => {
         const current = requestPendingQueue[config.key] as Required<QueueItem>;
-
+        const { shouldRetryOnError, errorRetryCount } = config;
         if (
-          config.shouldRetryOnError &&
-          (config.errorRetryCount ? config.errorRetryCount > current.retryCount : true)
+          shouldRetryOnError &&
+          shouldRetryOnError(err) &&
+          (errorRetryCount ? errorRetryCount > current.retryCount : true)
         ) {
           current.retryCount += 1;
           setTimeout(() => {
