@@ -1,10 +1,9 @@
-import axios from 'axios';
-import type { AxiosError, AxiosResponse, AxiosRequestConfig, AxiosAdapter } from 'axios';
+import axios, { AxiosError, AxiosResponse, AxiosRequestConfig, AxiosAdapter } from 'axios';
 
-import { AxiosEnhanceConfig } from './types';
+import { EnhanceDefaultOptions } from './types';
 import { isNotUndefined } from './utils';
 
-const DefaultOptions: Omit<AxiosEnhanceConfig, 'adapter'> = {
+const DefaultOptions: Omit<EnhanceDefaultOptions, 'customAdapter'> = {
   shouldRetryOnError: () => true,
   errorRetryInterval: 3000,
   errorRetryCount: 3,
@@ -37,13 +36,13 @@ interface RequestPendingQueue {
   [key: string]: undefined | QueueItem;
 }
 
-export function getEnhanceAdapter(options?: AxiosEnhanceConfig): AxiosAdapter {
+export function getEnhanceAdapter(options?: EnhanceDefaultOptions): AxiosAdapter {
   const requestPendingQueue: RequestPendingQueue = {};
   const adapter = (options?.customAdapter || axios.defaults.adapter) as AxiosAdapter;
 
   function request(
     requestConfig: AxiosRequestConfig,
-    config: AxiosEnhanceConfig & { key: string }
+    config: EnhanceDefaultOptions & { key: string }
   ) {
     return adapter(requestConfig)
       .then((res: AxiosResponse<any>) => {
@@ -85,7 +84,7 @@ export function getEnhanceAdapter(options?: AxiosEnhanceConfig): AxiosAdapter {
       errorRetryInterval: _errorRetryInterval,
       ...requestConfig
     } = axiosRequestConfig;
-    const opts = Object.assign({}, DefaultOptions, options) as Required<AxiosEnhanceConfig>;
+    const opts = Object.assign({}, DefaultOptions, options) as Required<EnhanceDefaultOptions>;
     const enable = checkEnable ? checkEnable(requestConfig) : opts.checkEnable(requestConfig);
 
     if (!enable) {

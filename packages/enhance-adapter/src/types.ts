@@ -15,7 +15,7 @@ export interface AxiosRequestEnhanceConfig {
   errorRetryCount?: number;
 }
 
-export interface AxiosEnhanceConfig
+export interface EnhanceDefaultOptions
   extends Pick<
     AxiosRequestEnhanceConfig,
     'checkEnable' | 'getKey' | 'shouldRetryOnError' | 'errorRetryInterval' | 'errorRetryCount'
