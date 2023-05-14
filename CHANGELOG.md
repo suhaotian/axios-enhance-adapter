@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.2
+
+- Improve types
+
 ## 0.1.1
 
 - Breaking Change: `shouldRetryOnError` change to `(err: AxiosError) => boolean` from `boolean`
