@@ -1,5 +1,5 @@
 [![Tests](https://github.com/suhaotian/axios-enhance-adapter/actions/workflows/tests-ci.yml/badge.svg)](https://github.com/suhaotian/axios-enhance-adapter/actions/workflows/tests-ci.yml)
-[![npm version](https://badgen.net/npm/v/axios-enhance-adapter?color=green)](https://www.npmjs.com/package/axios-enhance-adapters)
+[![npm version](https://badgen.net/npm/v/axios-enhance-adapter?color=green)](https://www.npmjs.com/package/axios-enhance-adapter)
 ![min size](https://badgen.net/bundlephobia/min/axios-enhance-adapter?color=green)
 [![install size](https://packagephobia.com/badge?p=axios-enhance-adapter@latest)](https://packagephobia.com/result?p=axios-enhance-adapter@latest)
 ![license](https://badgen.net/npm/license/axios-enhance-adapter?color=green)
