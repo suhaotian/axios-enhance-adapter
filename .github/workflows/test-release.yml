@@ -62,4 +62,4 @@ jobs:
       - name: Release
         run: pnpm --filter=axios-enhance-adapter start-publish
         env:
-          NODE_AUTH_TOKEN: ${{ npm.NPM_TOKEN_ELEVATED }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_ELEVATED }}
