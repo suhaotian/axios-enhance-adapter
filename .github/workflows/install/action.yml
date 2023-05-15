@@ -32,3 +32,4 @@ runs:
       run: |
         corepack enable
         pnpm install
+        pnpm --filter=axios-enhance-adapter build
