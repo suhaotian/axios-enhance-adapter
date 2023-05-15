@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "next-example",
-  "description": "axops-enhance-adapter example with next.js",
+  "name": "axios-enhance-adapter-e2e-site",
+  "description": "axops-enhance-adapter e2e tests site",
   "version": "1.0.0",
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx --fix",

@@ -5,8 +5,12 @@
       "cache": false,
       "outputs": []
     },
+    "check:types": {
+      "cache": false,
+      "outputs": []
+    },
     "test": {
-      "dependsOn": ["lint", "build"],
+      "dependsOn": ["lint", "check:types", "build"],
       "inputs": ["**/*.{ts,tsx,js,jsx}"]
     },
     "build": {

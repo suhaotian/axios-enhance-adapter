@@ -4,6 +4,7 @@
   "packageManager": "pnpm@8.1.0",
   "scripts": {
     "lint": "turbo lint",
+    "check:types": "turbo check:types && echo ",
     "test": "turbo test",
     "build": "turbo build",
     "dev": "turbo dev",
@@ -51,7 +52,8 @@
       "eslint --fix"
     ],
     "*.{ts,tsx,mts}": [
-      "pnpm lint --"
+      "pnpm lint --",
+      "pnpm check:types"
     ],
     "*.{md,css}": [
       "prettier --write"

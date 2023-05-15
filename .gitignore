@@ -66,3 +66,8 @@ build-*
 *.db
 *.db-shm
 *.db-wal
+
+coverage
+.rollup.cache
+playwright-report
+test-results

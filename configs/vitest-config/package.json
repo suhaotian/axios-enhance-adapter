@@ -4,11 +4,12 @@
   "description": "vitest config",
   "version": "1.0.0",
   "devDependencies": {
-    "vitest": "^0.29.8",
-    "@vitest/ui": "^0.29.8",
+    "vitest": "^0.31.0",
+    "@vitest/ui": "^0.31.0",
     "@vitejs/plugin-react": "^3.1.0",
     "@testing-library/react": "^14.0.0",
-    "jsdom": "^21.1.1"
+    "jsdom": "^22.0.0",
+    "@vitest/coverage-c8": "^0.31.0"
   },
   "license": "MIT"
 }
