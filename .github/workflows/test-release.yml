@@ -20,7 +20,7 @@ jobs:
 
       - name: Lint and test
         run: |
-          pnpm lint
+          pnpm --filter=axios-enhance-adapter lint
           pnpm --filter=axios-enhance-adapter check:types
           pnpm --filter=axios-enhance-adapter test
           pnpm --filter=next-example build

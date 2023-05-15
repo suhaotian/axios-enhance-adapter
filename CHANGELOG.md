@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## 0.1.2
+## 0.1.4
+
+- GitHub Action npm release 😄
+
+## 0.1.3
 
 - Improve types
 
