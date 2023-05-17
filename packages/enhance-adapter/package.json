@@ -1,14 +1,15 @@
 {
   "name": "axios-enhance-adapter",
   "description": "An axios adapter to avoid repeat requests and  erry retry",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     "require": "./dist/index.cjs",
     "import": "./dist/index.mjs",
-    "module": "./dist/index.esm.js"
+    "module": "./dist/index.esm.js",
+    "types": "./dist/types/index.d.ts"
   },
   "files": [
     "dist",

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.5
+
+- Fix warning: https://publint.dev/axios-enhance-adapter@0.1.4
+  The library has types at ./dist/types/index.d.ts but it is not exported from pkg.exports. Consider adding it to pkg.exports.types to be compatible with TypeScript's "moduleResolution": "bundler" compiler option.
+
 ## 0.1.4
 
 - GitHub Action npm release 😄
