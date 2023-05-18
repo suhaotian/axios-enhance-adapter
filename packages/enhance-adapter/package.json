@@ -6,10 +6,10 @@
   "module": "./dist/index.esm.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
+    "types": "./dist/types/index.d.ts",
     "require": "./dist/index.cjs",
     "import": "./dist/index.mjs",
-    "module": "./dist/index.esm.js",
-    "types": "./dist/types/index.d.ts"
+    "module": "./dist/index.esm.js"
   },
   "files": [
     "dist",
