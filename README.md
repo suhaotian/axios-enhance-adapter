@@ -5,7 +5,9 @@
 ![license](https://badgen.net/npm/license/axios-enhance-adapter?color=green)
 [![author](https://badgen.net/badge/icon/Made%20by%20suhaotian?icon=github&label&color=black&labelColor=black)](https://github.com/suhaotian)
 
-# axios enhance adapter
+# Depretated! axios enhance adapter
+
+Depretated! Recommend use xior: https://www.npmjs.com/package/xior
 
 **Note: Currently, only support axios <= v0.27.2**
 
